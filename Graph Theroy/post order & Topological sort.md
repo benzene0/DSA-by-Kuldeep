@@ -25,8 +25,7 @@ void dfs(int v) {
 
   
 ## Screenshots
-
-![Screenshot](Images/postorder.jpg)
+![Screenshot](../Images/postorder.jpg)
 
 
 # Topological sort
