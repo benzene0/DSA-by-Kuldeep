@@ -51,8 +51,7 @@ First explor current generation all nodes ,then explor next generation.
 	        gen++;l
 	    }
 	    
-	    return -1;
-	    
+	    return -1; 
 	}
 ```
 
