@@ -31,6 +31,7 @@ using namespace std;
 
 class Solution {
   public:
+  
     vector<vector<int>> ans;
     vector<int> one;
     unordered_map<int,int> m;
