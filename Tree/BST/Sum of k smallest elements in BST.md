@@ -1,7 +1,7 @@
 
 # Sum of k smallest elements in BST
 
-Given a Binary Search Tree. Find sum of all elements smaller than and equal to Kth smallest element.
+Given a Binary Search Tree.Find sum of all elements smaller than and equal to Kth smallest element.
 
 ### Input
           20
