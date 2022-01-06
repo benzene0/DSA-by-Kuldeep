@@ -47,6 +47,35 @@
 
 ## Using Heap
 
+## code
+
+```javascript
+vector<int> dijkstra(vector<vector<vector<int>>>& graph,int source){
+        priority_queue<pii,vector<pii>,greater<pii>> MinHeap;
+        
+        vector<int> dist(graph.size()+1,INT_MAX);
+        vector<bool> visited(graph.size()+1,false);
+        
+        MinHeap.push({0,source}); // weith node
+        dist[source] = 0;
+        
+        while(!MinHeap.empty()){
+            auto [crntDis,crntNode] = MinHeap.top();
+            MinHeap.pop();
+            if(visited[crntNode]) continue;
+            visited[crntNode] = true;
+            for(int i = 0;i<graph[crntNode].size();i++){
+                int nextNode = graph[crntNode][i][0], nextWet = graph[crntNode][i][1];
+                int nextDis = crntDis+nextWet;
+                if(!visited[nextNode] && nextDis<dist[nextNode]){
+                    dist[nextNode] = nextDis;
+                    MinHeap.push({nextDis,nextNode});
+                }
+            }
+        }
+        return dist;
+    }
+```
 ```javascript
     
 ```
