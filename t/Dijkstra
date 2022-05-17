@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pii;
+class sol{
+private:
+    vector<vector<vector<int>>> graph;
+    vector<int> parent;
+    vector<int> dist;
+    vector<bool> visited;
+    int n;
+    priority_queue<pii,vector<pii>,greater<pii>> pq;
+public:
+    sol(int n,vector<vector<vector<int>>> graph){
+        this->n = n;
+        this->graph = graph;
+        parent = vector<int> (n,-1);
+        dist = vector<int>(n,INT_MAX);
+        visited = vector<bool>(n,false);
+        dijkstra();
+    }
+    void dijkstra(){
+        int s;
+        cout<<"Enter the source vertex : \n";
+        cin>>s;
+        dist[s] = 0;
+        pq.push({0,s});
+        while(!pq.empty()){
+            pii t = pq.top(); pq.pop();
+            int nd = t.second , w = t.first;
+            if(visited[nd]) continue;
+            visited[nd] = true;
+            for(int i = 0;i<graph[nd].size();i++){
+                int node = graph[nd][i][0], nodew = w + graph[nd][i][1];
+                if(!visited[node] && dist[node] > nodew){
+                    pq.push({nodew,node});
+                    dist[node] = nodew;
+                    parent[node] = nd;
+                }
+            }
+        }
+        for(int i = 0;i<n;i++){
+            cout<<dist[i]<<" ";
+        }
+        cout<<"\n";
+        for(int i = 0;i<n;i++){
+            cout<<parent[i]<<" ";
+        }
+    }
+};
+
+int main(){
+    int n = 6;
+    vector<vector<vector<int>>> v = {
+        {{1,1},{2,4}},
+        {{0,1},{2,4},{3,2},{4,7}},
+        {{0,4},{1,4},{4,5},{3,3}},
+        {{2,3},{1,2},{4,4},{5,6}},
+        {{1,7},{2,5},{3,4},{5,7}},
+        {{4,7},{3,6}}
+    };
+    sol(n,v);
+    return 0;
+}
