@@ -1,7 +1,7 @@
 
 # Morris Traversal
 
-Make a Threaded Binary Tree 
+Make a Threaded Binary Tree after Traversal erase thread
 
               1                                1
             /   \                            /  :   \
